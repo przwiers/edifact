@@ -14,7 +14,7 @@ interface CharactersInterface
      *
      * @return CharactersInterface
      */
-    public function withComponentSeparator($character);
+    public function withComponentSeparator(string $character): CharactersInterface;
 
 
     /**
@@ -22,7 +22,7 @@ interface CharactersInterface
      *
      * @return string
      */
-    public function getComponentSeparator();
+    public function getComponentSeparator(): string;
 
 
     /**
@@ -32,7 +32,7 @@ interface CharactersInterface
      *
      * @return CharactersInterface
      */
-    public function withDataSeparator($character);
+    public function withDataSeparator(string $character): CharactersInterface;
 
 
     /**
@@ -40,7 +40,7 @@ interface CharactersInterface
      *
      * @return string
      */
-    public function getDataSeparator();
+    public function getDataSeparator(): string;
 
 
     /**
@@ -50,7 +50,7 @@ interface CharactersInterface
      *
      * @return CharactersInterface
      */
-    public function withDecimalPoint($character);
+    public function withDecimalPoint(string $character): CharactersInterface;
 
 
     /**
@@ -58,7 +58,7 @@ interface CharactersInterface
      *
      * @return string
      */
-    public function getDecimalPoint();
+    public function getDecimalPoint(): string;
 
 
     /**
@@ -68,7 +68,7 @@ interface CharactersInterface
      *
      * @return CharactersInterface
      */
-    public function withEscapeCharacter($character);
+    public function withEscapeCharacter(string $character): CharactersInterface;
 
 
     /**
@@ -76,7 +76,7 @@ interface CharactersInterface
      *
      * @return string
      */
-    public function getEscapeCharacter();
+    public function getEscapeCharacter(): string;
 
 
     /**
@@ -86,7 +86,7 @@ interface CharactersInterface
      *
      * @return CharactersInterface
      */
-    public function withSegmentTerminator($character);
+    public function withSegmentTerminator(string $character): CharactersInterface;
 
 
     /**
@@ -94,7 +94,7 @@ interface CharactersInterface
      *
      * @return string
      */
-    public function getSegmentTerminator();
+    public function getSegmentTerminator(): string;
 
 
     /**
@@ -104,7 +104,7 @@ interface CharactersInterface
      *
      * @return CharactersInterface
      */
-    public function withReservedSpace($character);
+    public function withReservedSpace(string $character): CharactersInterface;
 
 
     /**
@@ -112,5 +112,5 @@ interface CharactersInterface
      *
      * @return string
      */
-    public function getReservedSpace();
+    public function getReservedSpace(): string;
 }

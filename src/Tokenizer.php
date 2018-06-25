@@ -51,7 +51,7 @@ final class Tokenizer
      *
      * @return Token[]
      */
-    public function getTokens($message, ControlCharactersInterface $characters)
+    public function getTokens(string $message, ControlCharactersInterface $characters): array
     {
         $this->message = $message;
         $this->characters = $characters;
@@ -96,7 +96,7 @@ final class Tokenizer
      *
      * @return string
      */
-    private function getNextChar()
+    private function getNextChar(): string
     {
         $char = substr($this->message, $this->position, 1);
         ++$this->position;
@@ -157,7 +157,7 @@ final class Tokenizer
      *
      * @return bool
      */
-    private function isControlCharacter()
+    private function isControlCharacter(): bool
     {
         if ($this->isEscaped) {
             return false;
@@ -196,7 +196,7 @@ final class Tokenizer
      *
      * @return string
      */
-    private function extractStoredChars()
+    private function extractStoredChars(): string
     {
         $string = $this->string;
 
@@ -211,7 +211,7 @@ final class Tokenizer
      *
      * @return bool
      */
-    private function endOfMessage()
+    private function endOfMessage(): bool
     {
         return strlen($this->char) == 0;
     }

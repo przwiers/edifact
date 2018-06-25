@@ -18,5 +18,5 @@ interface FactoryInterface
      *
      * @return SegmentInterface
      */
-    public function createSegment(CharactersInterface $characters, $name, ...$elements);
+    public function createSegment(CharactersInterface $characters, string $name, ...$elements): SegmentInterface;
 }

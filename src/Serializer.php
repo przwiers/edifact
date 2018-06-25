@@ -36,7 +36,7 @@ final class Serializer
      *
      * @return string
      */
-    public function serialize(SegmentInterface ...$segments)
+    public function serialize(SegmentInterface ...$segments): string
     {
         $message = "UNA";
         $message .= $this->characters->getComponentSeparator();
@@ -72,7 +72,7 @@ final class Serializer
      *
      * @return string
      */
-    private function escape($string)
+    private function escape(string $string): string
     {
         $characters = [
             $this->characters->getEscapeCharacter(),

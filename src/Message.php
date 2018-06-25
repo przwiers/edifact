@@ -21,16 +21,16 @@ final class Message
      *
      * @param string $file The full path to a file that contains an EDI message
      *
-     * @return static
+     * @return self
      */
-    public static function fromFile($file)
+    public static function fromFile(string $file): self
     {
         $message = file_get_contents($file);
         if ($message === false) {
             throw new InvalidArgumentException("Unable to read the file: {$file}");
         }
 
-        return static::fromString($message);
+        return self::fromString($message);
     }
 
 
@@ -39,12 +39,12 @@ final class Message
      *
      * @param string $string The EDI message content
      *
-     * @return static
+     * @return self
      */
-    public static function fromString($string)
+    public static function fromString(string $string): self
     {
         $segments = (new Parser)->parse($string);
-        return static::fromSegments(...$segments);
+        return self::fromSegments(...$segments);
     }
 
 
@@ -55,9 +55,9 @@ final class Message
      *
      * @return static
      */
-    public static function fromSegments(SegmentInterface ...$segments)
+    public static function fromSegments(SegmentInterface ...$segments): self
     {
-        return (new static)->addSegments(...$segments);
+        return (new self)->addSegments(...$segments);
     }
 
 
@@ -66,7 +66,7 @@ final class Message
      *
      * @return SegmentInterface[]
      */
-    public function getAllSegments()
+    public function getAllSegments(): array
     {
         return $this->segments;
     }
@@ -79,7 +79,7 @@ final class Message
      *
      * @return SegmentInterface[]
      */
-    public function getSegments($code)
+    public function getSegments(string $code)
     {
         foreach ($this->getAllSegments() as $segment) {
             if ($segment->getSegmentCode() === $code) {
@@ -94,9 +94,9 @@ final class Message
      *
      * @param string $code The code of the segment to return
      *
-     * @return SegmentInterface
+     * @return SegmentInterface|null
      */
-    public function getSegment($code)
+    public function getSegment(string $code)
     {
         foreach ($this->getSegments($code) as $segment) {
             return $segment;
@@ -109,9 +109,9 @@ final class Message
      *
      * @param SegmentInterface[] $segments The segments to add
      *
-     * @return static
+     * @return $this
      */
-    public function addSegments(SegmentInterface ...$segments)
+    public function addSegments(SegmentInterface ...$segments): self
     {
         foreach ($segments as $segment) {
             $this->addSegment($segment);
@@ -126,9 +126,9 @@ final class Message
      *
      * @param SegmentInterface $segment The segment to add
      *
-     * @return static
+     * @return $this
      */
-    public function addSegment(SegmentInterface $segment)
+    public function addSegment(SegmentInterface $segment): self
     {
         $this->segments[] = $segment;
 
@@ -141,7 +141,7 @@ final class Message
      *
      * @return string
      */
-    public function serialize()
+    public function serialize(): string
     {
         return (new Serializer)->serialize(...$this->getAllSegments());
     }
@@ -152,7 +152,7 @@ final class Message
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->serialize();
     }

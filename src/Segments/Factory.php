@@ -18,7 +18,7 @@ final class Factory implements FactoryInterface
      *
      * @return SegmentInterface
      */
-    public function createSegment(CharactersInterface $characters, $name, ...$elements)
+    public function createSegment(CharactersInterface $characters, string $name, ...$elements): SegmentInterface
     {
         return new Segment($name, ...$elements);
     }

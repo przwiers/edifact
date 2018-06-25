@@ -45,7 +45,7 @@ final class Parser
      *
      * @return SegmentInterface[]
      */
-    public function parse($message, ControlCharactersInterface $characters = null)
+    public function parse(string $message, ControlCharactersInterface $characters = null)
     {
         $tokenizer = new Tokenizer;
 
@@ -67,7 +67,7 @@ final class Parser
      *
      * @return ControlCharactersInterface
      */
-    private function getControlCharacters(&$message, ControlCharactersInterface $characters = null)
+    private function getControlCharacters(string &$message, ControlCharactersInterface $characters = null): ControlCharactersInterface
     {
         if ($characters === null) {
             $characters = new ControlCharacters;
