@@ -24,7 +24,7 @@ class PerformanceTest extends TestCase
             $this->markTestSkipped("Not optimised for versions earlier than PHP 7");
         }
 
-        $data = file_get_contents(__DIR__ ."/data/wikipedia.edi");
+        $data = file_get_contents(__DIR__ . "/data/wikipedia.edi");
 
         file_put_contents($this->tmp, "");
         for ($i = 0; $i < 9999; ++$i) {
