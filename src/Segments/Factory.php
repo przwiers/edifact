@@ -10,13 +10,7 @@ use Metroplex\Edifact\Control\CharactersInterface;
 final class Factory implements FactoryInterface
 {
     /**
-     * Create a new Segment instance.
-     *
-     * @param ControlCharactersInterface $characters The control characters
-     * @param string $name The name of the segment
-     * @param array $elements The data elements for this segment
-     *
-     * @return SegmentInterface
+     * @inheritdoc
      */
     public function createSegment(CharactersInterface $characters, $name, ...$elements)
     {

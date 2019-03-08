@@ -51,7 +51,7 @@ final class Message
     /**
      * Create a new instance from an array of segments.
      *
-     * @param SegmentInterface[] $segments The segments of the message
+     * @param SegmentInterface ...$segments The segments of the message
      *
      * @return static
      */
@@ -77,9 +77,9 @@ final class Message
      *
      * @param string $code The code of the segment to return
      *
-     * @return SegmentInterface[]
+     * @return iterable&SegmentInterface[]
      */
-    public function getSegments($code)
+    public function getSegments($code): iterable
     {
         foreach ($this->getAllSegments() as $segment) {
             if ($segment->getSegmentCode() === $code) {
@@ -94,7 +94,7 @@ final class Message
      *
      * @param string $code The code of the segment to return
      *
-     * @return SegmentInterface
+     * @return SegmentInterface|null
      */
     public function getSegment($code)
     {
@@ -107,7 +107,7 @@ final class Message
     /**
      * Add multiple segments to the message.
      *
-     * @param SegmentInterface[] $segments The segments to add
+     * @param SegmentInterface ...$segments The segments to add
      *
      * @return static
      */

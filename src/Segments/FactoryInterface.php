@@ -14,7 +14,7 @@ interface FactoryInterface
      *
      * @param CharactersInterface $characters The control characters
      * @param string $name The name of the segment
-     * @param array $elements The data elements for this segment
+     * @param array|string ...$elements The data elements for this segment
      *
      * @return SegmentInterface
      */

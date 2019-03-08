@@ -32,7 +32,7 @@ final class Serializer
     /**
      * Serialize all the passed segments.
      *
-     * @param SegmentInterface[] $segments The segments to serialize
+     * @param SegmentInterface ...$segments The segments to serialize
      *
      * @return string
      */

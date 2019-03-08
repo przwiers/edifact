@@ -22,7 +22,7 @@ abstract class AbstractSegment implements SegmentInterface
      * Create a new instance.
      *
      * @param string $code The code of the segment.
-     * @param array $elements The data elements for this segment.
+     * @param mixed ...$elements The data elements for this segment.
      */
     public function __construct($code, ...$elements)
     {

@@ -43,9 +43,9 @@ final class Parser
      * @param string $message The EDI message
      * @param ControlCharactersInterface $characters The control characters
      *
-     * @return SegmentInterface[]
+     * @return iterable&SegmentInterface[]
      */
-    public function parse($message, ControlCharactersInterface $characters = null)
+    public function parse($message, ControlCharactersInterface $characters = null): iterable
     {
         $tokenizer = new Tokenizer();
 
@@ -100,7 +100,7 @@ final class Parser
      * @param Token[] $tokens The tokens that make up the message
      * @param ControlCharactersInterface $characters The control characters
      *
-     * @return SegmentInterface[]
+     * @return iterable&SegmentInterface[]
      */
     private function convertTokensToSegments(array $tokens, ControlCharactersInterface $characters)
     {
@@ -108,6 +108,8 @@ final class Parser
         $currentSegment = -1;
         $inSegment = false;
 
+        $part = 0;
+        $key = 0;
         foreach ($tokens as $token) {
             # If we're in the middle of a segment, check if we've reached the end
             if ($inSegment) {
